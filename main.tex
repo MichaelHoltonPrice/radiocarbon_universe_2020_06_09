@@ -156,12 +156,60 @@
 \begin{frame}[t]
   \frametitle{Bayesian Inference on a Single Sample}
     \begin{center}
-	%\includegraphics[height=.8\textheight]{radiocarbon_single_sample_both.pdf}
-       \includegraphics[height=.8\textheight]{calibration.png}
+      \includegraphics[height=.8\textheight]{calibration.png}
 	\begin{textblock*}{100pt}(0pt,240pt)
       		\small OxCal Website \normalsize
 	\end{textblock*}
     \end{center}
 \end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Bayesian Inference on a Single Sample: Uniform Prior}
+    \begin{center}
+      \includegraphics[height=.8\textheight]{single_obs_inf_plot1.pdf}
+    \end{center}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Bayesian Inference on a Single Sample: Update}
+    \begin{itemize}
+    \item Radiocarbon determination
+    \pause
+    \item Uncalibrated years BP
+    \item $t_{m}$
+    \pause
+    \item Uncertainty, uncalibrated years BP
+    \item $\sigma_{t_m}$
+    \pause
+    \item Fraction Modern
+    \item $\phi_m = \exp(-\frac{t_m}{8033})$
+    \item $\sigma_m = \sigma_{t_m} \frac{\phi_m}{8033}$
+    \pause
+    \item
+    \item Calibration curve
+    \item
+    \item Stratigraphy
+    \end{itemize}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Bayesian Inference on a Single Sample: Calibration Curve}
+    \includegraphics[height=.85\textheight]{single_obs_inf_plot2.pdf}
+    
+  %\begin{equation}
+%  \label{eq:p_phi_given_y}
+%  p(\phi_{m,i}|t) = f_{\mathcal{N}}(\phi_{m,i}|\phi_{c}(t),\sigma_i(t)) \mbox{,}
+%\end{equation}
+
+%    $\phi_m = \exp(-\frac{t_m}{8033})$
+%    $\sigma_m = \sigma_{t_m} \frac{\phi_m}{8033}$
+\end{frame}
+
+
+
+
 
 \end{document}
