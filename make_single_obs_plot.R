@@ -18,6 +18,13 @@ pdf('single_obs_inf_plot1.pdf',width=12,height=8)
 dev.off()
 
 pdf('single_obs_inf_plot2.pdf',width=12,height=8)
+  baydem::bd_vis_calib_curve(tau_min, tau_max, calibDf, xlab = "Calendar Year [AD]", ylab = "Fraction Modern", invertCol = "gray80")
+dev.off()
+
+pdf('single_obs_inf_plot3.pdf',width=12,height=8)
   plot(tau,fprior,type='l',lwd=3,xaxt='n',ylim=c(0,max(fprior,fpost)),xlab='Calendar Year [AD]',ylab='Density',col='grey')
   lines(tau,fpost,lwd=3)
 dev.off()
+
+
+
