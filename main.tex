@@ -18,7 +18,7 @@
 
 %\setbeamertemplate{background}[grid][step=.25\textwidth]
 
-\title[Osteo Paradox]{Latent trait models and other Bayesian solutions to the Osteological Paradox}
+\title[Bayesian Radiocarbon]{Reconstructing prehistoric human demography using end-to-end Bayesian analysis of radiocarbon dates}
 %\subtitle
 \author{Michael Holton Price}
 \institute[SFI] {
@@ -177,7 +177,7 @@
     \begin{center}
       \includegraphics[height=.8\textheight]{single_obs_inf_plot1.pdf}
     \end{center}
-    \begin{textblock*}{100pt}(170pt,150pt)
+    \begin{textblock*}{100pt}(175pt,140pt)
       \Large $p(t)$ \normalsize
 	\end{textblock*}
 \end{frame}
@@ -188,6 +188,16 @@
     \begin{itemize}
     \item Radiocarbon determination
     \pause
+    \item Calibration curve
+    \pause
+    \item Other constraints (for multiple samples, stratigraphy)
+    \end{itemize}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Representing the radiocarbon determination}
+    \begin{itemize}
     \item Uncalibrated years BP
     \item $t_{m}$
     \pause
@@ -195,32 +205,88 @@
     \item $\sigma_{t_m}$
     \pause
     \item Fraction Modern
-    \item $\phi_m = \exp(-\frac{t_m}{8033})$
-    \item $\sigma_m = \sigma_{t_m} \frac{\phi_m}{8033}$
-    \pause
-    \item
-    \item Calibration curve
-    \item
-    \item Stratigraphy
+    \item $\phi_m = \exp(-\frac{t_m}{\kappa})$
+    \item $\sigma_m = \sigma_{t_m} \frac{\phi_m}{\kappa}$
+    \item $\kappa=8033$
     \end{itemize}
+ 
 \end{frame}
 
 %----------- slide --------------------------------------------------%
 \begin{frame}[t]
-  \frametitle{Bayesian Inference on a Single Sample: Calibration Curve}
+  \frametitle{Calibration Curve}
     \includegraphics[height=.85\textheight]{single_obs_inf_plot2.pdf}
-    
-  %\begin{equation}
-%  \label{eq:p_phi_given_y}
-%  p(\phi_{m,i}|t) = f_{\mathcal{N}}(\phi_{m,i}|\phi_{c}(t),\sigma_i(t)) \mbox{,}
-%\end{equation}
-
-%    $\phi_m = \exp(-\frac{t_m}{8033})$
-%    $\sigma_m = \sigma_{t_m} \frac{\phi_m}{8033}$
 \end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Calibration Curve}
+    \includegraphics[height=.85\textheight]{single_obs_inf_plot2.pdf}
+    \begin{textblock*}{100pt}(125pt,135pt)
+      \Large $\phi_c(t)$ \normalsize
+	\end{textblock*}   
+\end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Calibration Curve}
+    \includegraphics[height=.85\textheight]{single_obs_inf_plot2.pdf}
+    \begin{textblock*}{100pt}(125pt,135pt)
+      \Large $\phi_c(t)$ \normalsize
+	\end{textblock*}   
+    \begin{textblock*}{100pt}(125pt,185pt)
+      \Large $\sigma_c(t)$ \normalsize
+	\end{textblock*}   
+\end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Likelihood (single observation, given $t$)}
+  \Large
+  \begin{equation}
+    \phi_m|t \sim N(\phi_c(t),\sigma^2(t))
+  \end{equation}
+  
+  \bigskip
+  
+  \begin{equation}
+    \sigma^2(t) = \sigma^2_m + \sigma^2_c(t)
+  \end{equation}
+  
+  \bigskip
+  
+  \begin{equation}
+    p(\phi_m|t) = \frac{1}{\sqrt{2\pi}\sigma(t)}\exp{(-\frac{1}{2}\frac{[\phi_m-\phi_c(t)]^2}{\sigma^2(t)})}
+  \end{equation}
+ 
+  \normalsize
+\end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Update (single observation, given $t$)}
+  \Large
+  \begin{equation}
+    p(t|\phi_m) \propto p(\phi_m|t) p(t)
+  \end{equation}
+  \normalsize
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Update (single observation, given $t$)}
+    \includegraphics[height=.85\textheight]{single_obs_inf_plot3.pdf}
+    \begin{textblock*}{100pt}(175pt,140pt)
+      \Large $p(t)$ \normalsize
+	\end{textblock*}
+    \begin{textblock*}{100pt}(220pt,80pt)
+      \Large $p(t|\phi_m)$ \normalsize
+	\end{textblock*}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}[t]
+  \frametitle{Summed probability densities (SPDs)}
+\end{frame}
 
 \end{document}
